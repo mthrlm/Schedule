@@ -5,3 +5,15 @@ C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.Genera
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AssemblyInfoInputs.cache
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AssemblyInfo.cs
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\Schedule.exe
+C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\Schedule.deps.json
+C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\Schedule.runtimeconfig.json
+C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\Schedule.dll
+C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\Schedule.pdb
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.dll
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\refint\Schedule.dll
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.pdb
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.genruntimeconfig.cache
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\ref\Schedule.dll
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AddTeacher.resources
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.EditSubjects.resources
