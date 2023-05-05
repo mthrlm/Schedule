@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Schedule.Interfaces;
 
 namespace Schedule.Entity
 {
-    public class Subject
+    public class Subject : ISubject
     {
+        private string? name;
+        public string Name 
+        { 
+            get => name;
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+                if (value.Length == 0) throw new ArgumentException("Длина предмета: 0");
+                name = value;
+            }
+        }
+
+        public Subject(string name)
+        {
+            this.name = name;
+        }
     }
 }
