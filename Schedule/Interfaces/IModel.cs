@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Schedule.Entities;
 
 namespace Schedule.Interfaces
 {
-    internal interface IModel
+    public interface IModel
     {
+        List<Teacher> Teachers { get; }
+        List<Subject> Subjects { get; }
+        List<Entity> GetData(string entityName);
+        void WriteData();
     }
 }

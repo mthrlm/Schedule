@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.Form1.resources
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AssemblyInfo.cs
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.CoreCompileInputs.cache

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Schedule.Interfaces
+﻿namespace Schedule.Interfaces
 {
-    internal interface IView
+    public interface IView
     {
     }
 }
