@@ -1,6 +1,6 @@
 ﻿namespace Schedule
 {
-    partial class EditSubjects
+    partial class AddTeachers
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // EditSubjects
+            // AddTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,9 +84,9 @@
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "EditSubjects";
+            this.Name = "AddTeachers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Уроки";
+            this.Text = "Учителя";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditSubjects_FormClosing);
             this.Load += new System.EventHandler(this.EditSubjects_Load);
             this.ResumeLayout(false);

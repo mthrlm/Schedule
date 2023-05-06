@@ -9,23 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Schedule
 {
-    public partial class AddTeacher : Form, IView
+    public partial class EditSubject : Form, IView
     {
-
-        public AddTeacher()
+        public event EventHandler<object> OnAdd; 
+        public event EventHandler<object> OnDelete; 
+        public event EventHandler<object> OnClose; 
+        public EditSubject()
         {
             InitializeComponent();
             Presenter.OnShow += ShowForm;
             Presenter.OnExit += HideForm;
         }
 
-        public event EventHandler<object>? OnClose;
-        public event EventHandler<object>? OnAdd;
-        public event EventHandler<object>? OnDelete;
+        public void ShowDeleteMessage(string message)
+        {
+            throw new NotImplementedException();
+        }
 
         public void ShowForm(object sender)
         {
@@ -39,20 +41,29 @@ namespace Schedule
                 this.Close();
         }
 
-        public void Update(object view, object args, string type)
+        public void ShowSaveMessage(string message)
         {
             throw new NotImplementedException();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> args = new List<string>() { nameText.Text, surnameText.Text, middleNameText.Text };
-            OnAdd?.Invoke(this, args);
+            OnAdd?.Invoke(this, textBox1.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             HideForm(this);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Update(object view, object args, string type)
+        {
+            throw new NotImplementedException();
         }
     }
 }

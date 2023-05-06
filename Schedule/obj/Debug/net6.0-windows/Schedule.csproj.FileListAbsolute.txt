@@ -17,3 +17,5 @@ C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.genrun
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\ref\Schedule.dll
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AddTeacher.resources
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.EditSubjects.resources
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.EditSubject.resources
+C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.AddTeachers.resources

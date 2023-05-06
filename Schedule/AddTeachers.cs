@@ -12,9 +12,10 @@ using System.Windows.Forms;
 
 namespace Schedule
 {
-    public partial class EditSubjects : Form, IView
+    public partial class AddTeachers : Form, IView
     {
-        public EditSubjects()
+        List<Teacher> teachers = new List<Teacher>();
+        public AddTeachers()
         {
             InitializeComponent();
             Presenter.OnShow += ShowForm;
@@ -40,14 +41,14 @@ namespace Schedule
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EditSubject_Presenter presenter = new EditSubject_Presenter();
+            AddTeacher_Presenter presenter = new AddTeacher_Presenter();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem == null) return;
 
-            OnDelete?.Invoke(this, listBox1.SelectedItem);
+            OnDelete?.Invoke(this, teachers[listBox1.SelectedIndex]);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -70,11 +71,12 @@ namespace Schedule
             if (!view.Equals(this)) return;
             if (args == null) return;
 
+            teachers = args as List<Teacher>;
             listBox1.Items.Clear();
 
-            foreach (var value in args as List<Subject>)
+            foreach (var value in args as List<Teacher>)
             {
-                listBox1.Items.Add(value.Name);
+                listBox1.Items.Add(value.ToString());
             }
         }
     }

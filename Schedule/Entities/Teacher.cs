@@ -9,7 +9,7 @@
         private string? surname;
         private List<Subject> subjects;
 
-        public string? Name
+        public string Name
         {
             get => name;
             set
@@ -101,6 +101,13 @@
                 this.Surname = surname;
             if (middleName != null)
                 this.MiddleName = middleName;
+        }
+
+        public override string ToString()
+        {
+            if (this.MiddleName == null)
+                return this.Surname + " " + this.Name[0] + ".";
+            return this.Surname + " " + this.Name[0] + ". " + this.MiddleName[0] + ".";
         }
     }
 }

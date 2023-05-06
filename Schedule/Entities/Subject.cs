@@ -23,5 +23,10 @@
         }
 
         private Subject() { }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

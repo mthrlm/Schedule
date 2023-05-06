@@ -4,6 +4,9 @@
     <Compile Update="AddTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EditSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
