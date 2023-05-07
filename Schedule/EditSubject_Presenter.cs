@@ -21,14 +21,9 @@ namespace Schedule
             throw new NotImplementedException();
         }
 
-        public override void Exit()
+        public override void Exit(object sender, object args)
         {
-            OnExit?.Invoke(_view);
-        }
-
-        public override void Hide()
-        {
-            throw new NotImplementedException();
+            OnExit?.Invoke(sender);
         }
 
         public override void Save(object sender, object args)
@@ -38,10 +33,12 @@ namespace Schedule
             try
             {
                 if (args.ToString().Equals(string.Empty)) throw new ArgumentNullException("Поле не может быть пустым");
-                string value = args.ToString();
+
+                string value = Utils.ToUpperFirstLetter(args.ToString());
                 Subject subject = new Subject(value);
+
                 OnSave?.Invoke(subject);
-                Exit();
+                Exit(_view, null);
             }
             catch (ArgumentNullException e)
             {

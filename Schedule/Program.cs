@@ -11,7 +11,6 @@ namespace Schedule
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Form1_Presenter presenter = new Form1_Presenter();
             Application.Run(new Form1());
         }
     }

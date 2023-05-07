@@ -27,14 +27,9 @@ namespace Schedule
             OnDelete?.Invoke(subject);
         }
 
-        public override void Exit()
+        public override void Exit(object sender, object args)
         {
             OnExit?.Invoke(_view);
-        }
-
-        public override void Hide()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Save(object sender, object args)

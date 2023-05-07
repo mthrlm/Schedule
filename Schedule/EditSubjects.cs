@@ -40,7 +40,7 @@ namespace Schedule
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EditSubject_Presenter presenter = new EditSubject_Presenter();
+            new EditSubject_Presenter();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,21 +48,6 @@ namespace Schedule
             if (listBox1.SelectedItem == null) return;
 
             OnDelete?.Invoke(this, listBox1.SelectedItem);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EditSubjects_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void EditSubjects_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void Update(object view, object args, string type)

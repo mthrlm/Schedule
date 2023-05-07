@@ -20,10 +20,9 @@ namespace Schedule
         protected IView _view;
 
         public abstract void Delete(object sender, object args);
-        public abstract void Update();
-        public abstract void Hide();
         public abstract void Save(object sender, object args);
-        public abstract void Exit();
+        public abstract void Exit(object sender, object args);
+        public abstract void Update();
         public abstract void ShowSaveMessage(string message);
         public abstract void ShowErrorMessage(string message);
         public abstract void ShowDeleteMessage(string message);

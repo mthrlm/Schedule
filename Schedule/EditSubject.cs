@@ -32,7 +32,7 @@ namespace Schedule
         public void ShowForm(object sender)
         {
             if (sender.Equals(this))
-                this.Show();
+                this.ShowDialog();
         }
 
         public void HideForm(object sender)
@@ -56,10 +56,6 @@ namespace Schedule
             HideForm(this);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         public void Update(object view, object args, string type)
         {

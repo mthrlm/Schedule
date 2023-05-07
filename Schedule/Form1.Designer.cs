@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Schedule = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -56,6 +57,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.Schedule.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -73,11 +76,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Schedule);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Location = new System.Drawing.Point(-4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -86,6 +92,7 @@
             // 
             // Schedule
             // 
+            this.Schedule.Controls.Add(this.button4);
             this.Schedule.Controls.Add(this.label4);
             this.Schedule.Controls.Add(this.label3);
             this.Schedule.Controls.Add(this.tabControl2);
@@ -105,6 +112,16 @@
             this.Schedule.TabIndex = 0;
             this.Schedule.Text = "Расписание";
             this.Schedule.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(458, 193);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Генерация";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label4
             // 
@@ -371,6 +388,28 @@
             this.textBox1.Size = new System.Drawing.Size(141, 23);
             this.textBox1.TabIndex = 3;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.dataGridView1);
+            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(709, 265);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "tabPage8";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(28, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(651, 253);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -400,6 +439,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,5 +475,8 @@
         private TextBox textBox1;
         private ComboBox comboBox2;
         private ComboBox comboBox1;
+        private Button button4;
+        private TabPage tabPage8;
+        private DataGridView dataGridView1;
     }
 }

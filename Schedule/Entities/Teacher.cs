@@ -103,11 +103,14 @@
                 this.MiddleName = middleName;
         }
 
-        public override string ToString()
+        public string ToString(bool toCut = true)
         {
-            if (this.MiddleName == null)
-                return this.Surname + " " + this.Name[0] + ".";
-            return this.Surname + " " + this.Name[0] + ". " + this.MiddleName[0] + ".";
+            string name = toCut ? this.Name[0].ToString() + "." : this.Name;
+            string middleName = this.MiddleName == null ? null : toCut ? this.MiddleName[0].ToString() + "." : this.MiddleName;
+
+            if (middleName == null)
+                return $"{Surname} {name}";
+            return $"{Surname} {name} {middleName}";
         }
     }
 }

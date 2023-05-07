@@ -30,7 +30,7 @@ namespace Schedule
         public void ShowForm(object sender)
         {
             if (sender.Equals(this))
-                this.Show();
+                this.ShowDialog();
         }
 
         public void HideForm(object sender)

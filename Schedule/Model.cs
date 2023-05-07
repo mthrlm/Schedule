@@ -10,11 +10,10 @@ namespace Schedule
     {
         private List<Teacher> teachersList;
         private List<Subject> subjectsList;
+        private Type[] types = new Type[] { typeof(Teacher), typeof(Subject) };
 
         public List<Teacher> Teachers => teachersList;
         public List<Subject> Subjects => subjectsList;
-
-        Type[] types = new Type[] { typeof(Teacher), typeof(Subject) };
 
         public static Action OnUpdate;
 
@@ -64,7 +63,6 @@ namespace Schedule
                 teachersList.Add(entity as Teacher);
             if (entity.GetType() == typeof(Subject))
                 subjectsList.Add(entity as Subject);
-            WriteData();
             OnUpdate?.Invoke();
         }
 
@@ -80,7 +78,6 @@ namespace Schedule
                 Teacher t = entity as Teacher;
                 teachersList.Remove(teachersList.Find(x => x.Name == t.Name && x.Surname == t.Surname && x.MiddleName == t.MiddleName));
             }
-            WriteData();
             OnUpdate?.Invoke();
         }
 
@@ -109,7 +106,6 @@ namespace Schedule
                     }
                 }
             }
-            WriteData();
             OnUpdate?.Invoke();
         }
     }

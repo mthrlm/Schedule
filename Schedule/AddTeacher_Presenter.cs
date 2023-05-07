@@ -21,14 +21,9 @@ namespace Schedule
             throw new NotImplementedException();
         }
 
-        public override void Exit()
+        public override void Exit(object sender, object args)
         {
             OnExit?.Invoke(_view);
-        }
-
-        public override void Hide()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Save(object sender, object args)
@@ -37,11 +32,12 @@ namespace Schedule
             try
             {
                 List<string> values = args as List<string>;
+                values = values.Select(x => Utils.ToUpperFirstLetter(x)).ToList();
 
                 if (values.FindAll(x => x.Length == 0).Count > 0) throw new ArgumentNullException("Поля не могут быть пустыми");
                 Teacher teacher = new Teacher(values[0], values[1], values[2]);
                 OnSave?.Invoke(teacher);
-                Exit();
+                Exit(_view, null);
             }
             catch (ArgumentNullException e)
             {

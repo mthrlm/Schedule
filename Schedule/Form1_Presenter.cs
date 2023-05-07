@@ -13,7 +13,10 @@ namespace Schedule
         public Form1_Presenter(IView view) : base()
         {
             _view = view;
+            _view.OnClose += Exit;
             _view.OnAdd += Save;
+
+            Model.OnUpdate += Update;
  
             Update();
         }
@@ -23,15 +26,10 @@ namespace Schedule
             throw new NotImplementedException();
         }
 
-        public override void Exit()
+        public override void Exit(object sender, object e)
         {
             _model.WriteData();
             OnExit?.Invoke(_view);
-        }
-
-        public override void Hide()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Save(object sender, object args)

@@ -14,7 +14,6 @@ namespace Schedule
 {
     public partial class AddTeachers : Form, IView
     {
-        List<Teacher> teachers = new List<Teacher>();
         public AddTeachers()
         {
             InitializeComponent();
@@ -41,29 +40,12 @@ namespace Schedule
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddTeacher_Presenter presenter = new AddTeacher_Presenter();
+            new AddTeacher_Presenter();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem == null) return;
-
-            OnDelete?.Invoke(this, teachers[listBox1.SelectedIndex]);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EditSubjects_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void EditSubjects_Load(object sender, EventArgs e)
-        {
-
+            OnDelete?.Invoke(this, listBox1.SelectedIndex);
         }
 
         public void Update(object view, object args, string type)
@@ -71,12 +53,11 @@ namespace Schedule
             if (!view.Equals(this)) return;
             if (args == null) return;
 
-            teachers = args as List<Teacher>;
             listBox1.Items.Clear();
 
             foreach (var value in args as List<Teacher>)
             {
-                listBox1.Items.Add(value.ToString());
+                listBox1.Items.Add(value.ToString(false));
             }
         }
     }
