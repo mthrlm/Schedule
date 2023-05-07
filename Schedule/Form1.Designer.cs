@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Schedule = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,6 +60,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.Schedule.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -78,12 +82,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Schedule);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Location = new System.Drawing.Point(-4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -92,6 +99,7 @@
             // 
             // Schedule
             // 
+            this.Schedule.Controls.Add(this.button5);
             this.Schedule.Controls.Add(this.button4);
             this.Schedule.Controls.Add(this.label4);
             this.Schedule.Controls.Add(this.label3);
@@ -112,6 +120,16 @@
             this.Schedule.TabIndex = 0;
             this.Schedule.Text = "Расписание";
             this.Schedule.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(458, 222);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(110, 23);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Расписание";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -410,6 +428,35 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.richTextBox1);
+            this.tabPage9.Controls.Add(this.dataGridView2);
+            this.tabPage9.Location = new System.Drawing.Point(4, 24);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(709, 265);
+            this.tabPage9.TabIndex = 2;
+            this.tabPage9.Text = "tabPage9";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(338, 6);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(361, 248);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(315, 248);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -441,6 +488,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,5 +527,9 @@
         private Button button4;
         private TabPage tabPage8;
         private DataGridView dataGridView1;
+        private Button button5;
+        private TabPage tabPage9;
+        private DataGridView dataGridView2;
+        private RichTextBox richTextBox1;
     }
 }

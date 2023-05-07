@@ -7,10 +7,11 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-//using Excel = Microsoft.Office.Interop.Excel;
 using ClosedXML.Excel;
 using DataTable = System.Data.DataTable;
 using DocumentFormat.OpenXml.Wordprocessing;
+using System.Numerics;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Schedule
 {
@@ -23,6 +24,9 @@ namespace Schedule
         private List<DataGridView> data = new List<DataGridView>();
         List<DataTable> table = new List<DataTable>();
         DataTable resultTable = new DataTable();
+        DataTable scheduleTable = new DataTable();
+        List<Teacher> teachers = new List<Teacher>();
+        List<Subject> subjects = new List<Subject>();
 
         public Form1()
         {
@@ -50,6 +54,7 @@ namespace Schedule
                 table[i].PrimaryKey = primaryKeyTable;
             }
             dataGridView1.DataSource = resultTable;
+            dataGridView2.DataSource = scheduleTable;
 
             resultTable.Columns.Add("№", typeof(string));
             resultTable.Columns.Add("Преподаватель", typeof(string));
@@ -101,6 +106,7 @@ namespace Schedule
 
             if (type == "Teacher")
             {
+                teachers = args as List<Teacher>;
                 comboBox2.Items.Clear();
                 foreach (var value in args as List<Teacher>)
                     comboBox2.Items.Add(value.ToString(true));
@@ -108,6 +114,7 @@ namespace Schedule
 
             if (type == "Subject")
             {
+                subjects = args as List<Subject>;
                 comboBox1.Items.Clear();
                 foreach (var value in args as List<Subject>)
                     comboBox1.Items.Add(value);
@@ -381,6 +388,89 @@ namespace Schedule
             {
                 e.Value = "";
                 e.FormattingApplied = true;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<int> groups = new List<int>();
+            List<int> teach = new List<int>();
+
+            for (int col = 4; col < resultTable.Columns.Count - 1; col++)
+            {
+                for (int row = 0; row < resultTable.Rows.Count; row++)
+                {
+                    try
+                    {
+                        var index = int.Parse(dataGridView1.Rows[row].Cells[col].Value.ToString());
+                    }
+                    catch (ArgumentNullException ex)
+                    {
+                        continue;
+                    }
+                    catch (FormatException ex)
+                    {
+                        continue;
+                    }
+
+                    for (int hourCount = 0; hourCount < int.Parse(dataGridView1.Rows[row].Cells[col].Value.ToString()); hourCount++)
+                    {
+                        groups.Add(col);
+                        teach.Add(subjects.Find(x => x.ToString().Equals(resultTable.Rows[row]["Предм"].ToString())).Id);
+                        
+                    }
+                }
+            }
+            richTextBox1.Text += "\n\n";
+            foreach (var group in groups)
+                richTextBox1.Text += group;
+            richTextBox1.Text += "\n\n\n";
+            foreach (var teac in teach)
+            {
+                foreach (Subject s in subjects)
+                {
+                    if (s.Id == teac)
+                        richTextBox1.Text += s.Name;
+                }
+            }
+            var list = new List<Algorithm.Lessоn>();
+            for (int i = 0; i < groups.Count; i++)
+                list.Add(new Algorithm.Lessоn(groups[i], teach[i]));
+
+            var solver = new Algorithm.Solver();//создаем решатель
+
+            Algorithm.Plan.DaysPerWeek = 5;//устанавливаем только два учебных дна - это нужно лишь для данной тестовой задачи, в реальности - выставьте нужное число учебных дней!
+            Algorithm.Plan.HoursPerDay = 8;
+
+            solver.FitnessFunctions.Add(Algorithm.FitnessFunctions.Windows);//будем штрафовать за окна
+            solver.FitnessFunctions.Add(Algorithm.FitnessFunctions.LateLesson);//будем штрафовать за поздние пары
+
+            var res = solver.Solve(list);//находим лучший план
+
+            scheduleTable.Columns.Add(new DataColumn("Время", typeof(string)));
+            for (int i = 4; i < resultTable.Columns.Count - 1; i++)
+            {
+                DataColumn column = new DataColumn(resultTable.Columns[i].ColumnName, typeof(string));
+                scheduleTable.Columns.Add(column);
+            }
+            scheduleTable.AcceptChanges();
+
+            for (int i = 0; i < Algorithm.Plan.DaysPerWeek; i++)
+            {
+                DataRow row = scheduleTable.NewRow();
+                for (int j = 0; j < Algorithm.Plan.HoursPerDay; j++)
+                {
+                    List<Algorithm.Lessоn> byHour = res.GetLessonsOfDay((byte)i).Where(x => x.Hour == j).ToList();
+                    foreach (Algorithm.Lessоn lesson in byHour)
+                    {
+                        row["Время"] = (lesson.Hour + 1).ToString();
+                        row[dataGridView1.Columns[lesson.Group].Name] = subjects.Find(x => x.Id == lesson.Teacher).ToString();
+                    }
+                    scheduleTable.Rows.Add(row);
+                    row = scheduleTable.NewRow();
+                    scheduleTable.AcceptChanges();
+                }
+
             }
         }
     }

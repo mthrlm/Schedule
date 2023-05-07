@@ -10,7 +10,7 @@ namespace Schedule.Entities
         public static int overall_id = 0;
 
         public string EntityName { get { return entityName; } }
-        public int Id { get; }
+        public int Id { get => id; }
 
         protected Entity()
         {
