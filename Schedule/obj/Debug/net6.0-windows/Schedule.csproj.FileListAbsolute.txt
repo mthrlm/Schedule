@@ -28,3 +28,33 @@ C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\Irony.dll
 C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
 C:\Users\User\Desktop\Schedule\Schedule\bin\Debug\net6.0-windows\XLParser.dll
 C:\Users\User\Desktop\Schedule\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.CopyComplete
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\Schedule.exe
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\Schedule.deps.json
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\Schedule.runtimeconfig.json
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\Schedule.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\Schedule.pdb
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\ClosedXML.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\ExcelNumberFormat.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\Irony.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\bin\Debug\net6.0-windows\XLParser.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.ResolveComReference.cache
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.AddTeacher.resources
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.AddTeachers.resources
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.EditSubject.resources
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.EditSubjects.resources
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.Form1.resources
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.AssemblyInfo.cs
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.csproj.CopyComplete
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\refint\Schedule.dll
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.pdb
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\Schedule.genruntimeconfig.cache
+C:\Users\User\Desktop\Schedule — копия (2)\Schedule\obj\Debug\net6.0-windows\ref\Schedule.dll

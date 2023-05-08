@@ -12,6 +12,7 @@ using DataTable = System.Data.DataTable;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Numerics;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.Text;
 
 namespace Schedule
 {
@@ -27,6 +28,7 @@ namespace Schedule
         DataTable scheduleTable = new DataTable();
         List<Teacher> teachers = new List<Teacher>();
         List<Subject> subjects = new List<Subject>();
+        List<SubjectToTeach> subjectsToTeach = new List<SubjectToTeach>();
 
         public Form1()
         {
@@ -279,6 +281,11 @@ namespace Schedule
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SaveFile(resultTable, dataGridView1);
+        }
+
+        void SaveFile(DataTable dt, DataGridView dgv)
+        {
             string fileName;
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -291,22 +298,22 @@ namespace Schedule
                 fileName = saveFileDialog1.FileName;
                 var workbook = new XLWorkbook();
                 var worksheet = workbook.Worksheets.Add(this.Text);
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                for (int i = 0; i < dgv.Columns.Count; i++)
                 {
-                    worksheet.Cell(1, i + 1).Value = dataGridView1.Columns[i].Name;
+                    worksheet.Cell(1, i + 1).Value = dgv.Columns[i].Name;
                 }
 
-                for (int i = 0; i < resultTable.Rows.Count; i++)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    for (int j = 0; j < resultTable.Columns.Count; j++)
+                    for (int j = 0; j < dt.Columns.Count; j++)
                     {
-                        worksheet.Cell(i + 2, j + 1).Value = resultTable.Rows[i][j].ToString();
+                        worksheet.Cell(i + 2, j + 1).Value = dt.Rows[i][j].ToString();
 
                         if (worksheet.Cell(i + 2, j + 1).Value.ToString().Length > 0)
                         {
                             XLAlignmentHorizontalValues align;
 
-                            switch (dataGridView1.Rows[i].Cells[j].Style.Alignment)
+                            switch (dgv.Rows[i].Cells[j].Style.Alignment)
                             {
                                 case DataGridViewContentAlignment.BottomRight:
                                     align = XLAlignmentHorizontalValues.Right;
@@ -335,11 +342,11 @@ namespace Schedule
 
                             worksheet.Cell(i + 2, j + 1).Style.Alignment.Horizontal = align;
 
-                            XLColor xlColor = XLColor.FromColor(dataGridView1.Rows[i].Cells[j].Style.SelectionBackColor);
+                            XLColor xlColor = XLColor.FromColor(dgv.Rows[i].Cells[j].Style.SelectionBackColor);
                             worksheet.Cell(i + 2, j + 1).AddConditionalFormat().WhenLessThan(1).Fill.SetBackgroundColor(xlColor);
 
-                            worksheet.Cell(i + 2, j + 1).Style.Font.FontName = dataGridView1.Font.Name;
-                            worksheet.Cell(i + 2, j + 1).Style.Font.FontSize = dataGridView1.Font.Size;
+                            worksheet.Cell(i + 2, j + 1).Style.Font.FontName = dgv.Font.Name;
+                            worksheet.Cell(i + 2, j + 1).Style.Font.FontSize = dgv.Font.Size;
 
                         }
                     }
@@ -393,64 +400,12 @@ namespace Schedule
 
         private void button5_Click(object sender, EventArgs e)
         {
-            List<int> groups = new List<int>();
-            List<int> teach = new List<int>();
+            Algorithm.Plan res = GetPlan();
 
-            for (int col = 4; col < resultTable.Columns.Count - 1; col++)
-            {
-                for (int row = 0; row < resultTable.Rows.Count; row++)
-                {
-                    try
-                    {
-                        var index = int.Parse(dataGridView1.Rows[row].Cells[col].Value.ToString());
-                    }
-                    catch (ArgumentNullException ex)
-                    {
-                        continue;
-                    }
-                    catch (FormatException ex)
-                    {
-                        continue;
-                    }
-
-                    for (int hourCount = 0; hourCount < int.Parse(dataGridView1.Rows[row].Cells[col].Value.ToString()); hourCount++)
-                    {
-                        groups.Add(col);
-                        teach.Add(subjects.Find(x => x.ToString().Equals(resultTable.Rows[row]["Предм"].ToString())).Id);
-                        
-                    }
-                }
-            }
-            richTextBox1.Text += "\n\n";
-            foreach (var group in groups)
-                richTextBox1.Text += group;
-            richTextBox1.Text += "\n\n\n";
-            foreach (var teac in teach)
-            {
-                foreach (Subject s in subjects)
-                {
-                    if (s.Id == teac)
-                        richTextBox1.Text += s.Name;
-                }
-            }
-            var list = new List<Algorithm.Lessоn>();
-            for (int i = 0; i < groups.Count; i++)
-                list.Add(new Algorithm.Lessоn(groups[i], teach[i]));
-
-            var solver = new Algorithm.Solver();//создаем решатель
-
-            Algorithm.Plan.DaysPerWeek = 5;//устанавливаем только два учебных дна - это нужно лишь для данной тестовой задачи, в реальности - выставьте нужное число учебных дней!
-            Algorithm.Plan.HoursPerDay = 8;
-
-            solver.FitnessFunctions.Add(Algorithm.FitnessFunctions.Windows);//будем штрафовать за окна
-            solver.FitnessFunctions.Add(Algorithm.FitnessFunctions.LateLesson);//будем штрафовать за поздние пары
-
-            var res = solver.Solve(list);//находим лучший план
-
-            scheduleTable.Columns.Add(new DataColumn("Время", typeof(string)));
+            scheduleTable.Columns.Add(new DataColumn("Урок", typeof(string)));
             for (int i = 4; i < resultTable.Columns.Count - 1; i++)
             {
-                DataColumn column = new DataColumn(resultTable.Columns[i].ColumnName, typeof(string));
+                DataColumn column = new DataColumn(dataGridView1.Columns[i].Name, typeof(string));
                 scheduleTable.Columns.Add(column);
             }
             scheduleTable.AcceptChanges();
@@ -463,14 +418,82 @@ namespace Schedule
                     List<Algorithm.Lessоn> byHour = res.GetLessonsOfDay((byte)i).Where(x => x.Hour == j).ToList();
                     foreach (Algorithm.Lessоn lesson in byHour)
                     {
-                        row["Время"] = (lesson.Hour + 1).ToString();
-                        row[dataGridView1.Columns[lesson.Group].Name] = subjects.Find(x => x.Id == lesson.Teacher).ToString();
+                        SubjectToTeach subject = subjectsToTeach.Find(x => x.Id == lesson.Teacher);
+                        row["Урок"] = (lesson.Hour + 1).ToString();
+                        row[dataGridView1.Columns[lesson.Group].Name] = subject.Name + " " + subject.SubjectTeacher.ToString();
+
                     }
                     scheduleTable.Rows.Add(row);
                     row = scheduleTable.NewRow();
                     scheduleTable.AcceptChanges();
                 }
+            }
+            SaveFile(scheduleTable, dataGridView2);
+        }
 
+        Algorithm.Plan GetPlan()
+        {
+            List<int> groups;
+            List<int> teach;
+
+            GetVars(out groups, out teach);
+
+            var list = new List<Algorithm.Lessоn>();
+            for (int i = 0; i < groups.Count; i++)
+                list.Add(new Algorithm.Lessоn(groups[i], teach[i]));
+
+            var solver = new Algorithm.Solver();//создаем решатель
+
+            Algorithm.Plan.DaysPerWeek = 6;//устанавливаем только два учебных дна - это нужно лишь для данной тестовой задачи, в реальности - выставьте нужное число учебных дней!
+            Algorithm.Plan.HoursPerDay = 8;
+
+            solver.FitnessFunctions.Add(Algorithm.FitnessFunctions.Windows);//будем штрафовать за окна
+            solver.FitnessFunctions.Add(Algorithm.FitnessFunctions.LateLesson);//будем штрафовать за поздние пары
+
+            return solver.Solve(list);//находим лучший план
+        }
+
+        void GetVars(out List<int> groups, out List<int> teach)
+        {
+            groups = new List<int>();
+            teach = new List<int>();
+
+            for (int row = 0; row < resultTable.Rows.Count; row++)
+            {
+                for (int col = 4; col < resultTable.Columns.Count - 1; col++)
+                {
+                    try
+                    {
+                        var index = int.Parse(resultTable.Rows[row][col].ToString());
+                    }
+                    catch (ArgumentNullException ex)
+                    {
+                        continue;
+                    }
+                    catch (FormatException ex)
+                    {
+                        continue;
+                    }
+
+                    for (int hourCount = 0; hourCount < int.Parse(resultTable.Rows[row][col].ToString()); hourCount++)
+                    {
+                        groups.Add(col);
+                        string name = subjects.Find(x => x.ToString().Equals(resultTable.Rows[row]["Предм"].ToString())).ToString();
+                        Teacher teacher = teachers.Find(x => x.ToString() == resultTable.Rows[row]["Преподаватель"].ToString());
+
+                        if (subjectsToTeach.Count > 0 && subjectsToTeach.Exists(x => x.Name.Equals(name) && x.SubjectTeacher.Id == teacher.Id))
+                        {
+                            int id = subjectsToTeach.Where(x => x.Name == name && x.SubjectTeacher.Id == teacher.Id).ToList()[0].Id;
+                            teach.Add(id);
+                        }
+                        else
+                        {
+                            SubjectToTeach subject = new SubjectToTeach(name, teacher);
+                            subjectsToTeach.Add(subject);
+                            teach.Add(subject.Id);
+                        }
+                    }
+                }
             }
         }
     }

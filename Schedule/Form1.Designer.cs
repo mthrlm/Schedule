@@ -62,7 +62,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.Schedule.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -94,7 +93,7 @@
             this.tabControl1.Location = new System.Drawing.Point(-4, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(717, 293);
+            this.tabControl1.Size = new System.Drawing.Size(716, 293);
             this.tabControl1.TabIndex = 0;
             // 
             // Schedule
@@ -116,9 +115,9 @@
             this.Schedule.Location = new System.Drawing.Point(4, 24);
             this.Schedule.Name = "Schedule";
             this.Schedule.Padding = new System.Windows.Forms.Padding(3);
-            this.Schedule.Size = new System.Drawing.Size(709, 265);
+            this.Schedule.Size = new System.Drawing.Size(708, 265);
             this.Schedule.TabIndex = 0;
-            this.Schedule.Text = "Расписание";
+            this.Schedule.Text = "Данные";
             this.Schedule.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -412,57 +411,49 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 24);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(709, 265);
+            this.tabPage8.Size = new System.Drawing.Size(708, 265);
             this.tabPage8.TabIndex = 1;
-            this.tabPage8.Text = "tabPage8";
+            this.tabPage8.Text = "Нагрузка";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(651, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 253);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.richTextBox1);
             this.tabPage9.Controls.Add(this.dataGridView2);
             this.tabPage9.Location = new System.Drawing.Point(4, 24);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(709, 265);
+            this.tabPage9.Size = new System.Drawing.Size(708, 265);
             this.tabPage9.TabIndex = 2;
-            this.tabPage9.Text = "tabPage9";
+            this.tabPage9.Text = "Расписание";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(338, 6);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 6);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(361, 248);
+            this.dataGridView2.Size = new System.Drawing.Size(687, 253);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(315, 248);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 290);
+            this.ClientSize = new System.Drawing.Size(708, 289);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -530,6 +521,5 @@
         private Button button5;
         private TabPage tabPage9;
         private DataGridView dataGridView2;
-        private RichTextBox richTextBox1;
     }
 }

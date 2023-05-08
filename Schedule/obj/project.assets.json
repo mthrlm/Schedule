@@ -4801,11 +4801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Schedule\\Schedule\\Schedule.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Schedule — копия (2)\\Schedule\\Schedule.csproj",
       "projectName": "Schedule",
-      "projectPath": "C:\\Users\\User\\Desktop\\Schedule\\Schedule\\Schedule.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Schedule — копия (2)\\Schedule\\Schedule.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Schedule\\Schedule\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Schedule — копия (2)\\Schedule\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
